@@ -70,7 +70,7 @@ const EventCard = ({ event }: EventCardProps) => {
             </div>
           </div>
           
-          <p className="text-[11px] leading-[15px] text-[#919191]">
+          <p className="text-[11px] leading-[15px] text-[#919191] line-clamp-2 overflow-hidden text-ellipsis">
             {event.eventDescription || "Looking for players to join a friendly match. Come train and have fun!"}
           </p>
         </div>
