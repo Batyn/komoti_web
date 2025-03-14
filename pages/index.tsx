@@ -13,10 +13,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="mb-8">
-        <h1 className="text-3xl font-bold mb-6">Popular Events Near You</h1>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="pt-[100px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-[20px]">
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}

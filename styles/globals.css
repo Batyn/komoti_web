@@ -5,12 +5,14 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
+  --gray-light: #E8E8E8;
+  --gray-text: #919191;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 @layer components {
@@ -19,5 +21,50 @@ body {
   }
   .btn-primary {
     @apply bg-black text-white hover:bg-gray-800;
+  }
+  
+  /* Карточки событий */
+  .event-card {
+    @apply bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .event-card-image {
+    @apply relative h-48 w-full;
+  }
+  
+  .event-card-image img {
+    @apply w-full h-full object-cover rounded-t-xl;
+  }
+  
+  .event-badge {
+    @apply absolute bottom-2 left-2 bg-white bg-opacity-80 rounded-full px-2 py-1 text-xs flex items-center;
+  }
+  
+  .event-title {
+    @apply text-sm font-medium mb-1;
+  }
+  
+  .event-location {
+    @apply text-xs text-gray-text;
+  }
+  
+  .event-date {
+    @apply text-xs text-gray-text;
+  }
+  
+  .event-price {
+    @apply text-sm font-medium;
+  }
+  
+  .event-price-free {
+    @apply text-green-600;
+  }
+  
+  .event-host {
+    @apply flex items-center;
+  }
+  
+  .event-tag {
+    @apply text-xs bg-[#E8E8E8] px-2 py-1 rounded-full inline-flex items-center justify-center;
   }
 } 
