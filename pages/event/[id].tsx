@@ -87,18 +87,18 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
         <meta name="description" content={event.eventDescription || `Detailed information about ${event.title}`} />
       </Head>
 
-      <div className="pt-[100px] pb-[50px] max-w-7xl mx-auto px-4">
-        <div className="mb-6">
+      <div className="pt-6 sm:pt-[100px] pb-6 sm:pb-[50px] max-w-7xl mx-auto px-4">
+        <div className="mb-4 sm:mb-6">
           <Link href="/" className="inline-flex items-center text-gray-600 hover:text-green-600 transition-colors">
             <span className="mr-2">←</span>
             <span>Back to Home</span>
           </Link>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-8">
           {/* Left column with image and main information */}
           <div className="w-full md:w-2/3">
-            <div className="relative w-full h-[300px] md:h-[400px] mb-6 rounded-[20px] overflow-hidden">
+            <div className="relative w-full h-[250px] sm:h-[400px] mb-4 sm:mb-6 rounded-[20px] overflow-hidden">
               <div 
                 className="w-full h-full bg-cover bg-center rounded-[20px]"
                 style={{
@@ -107,20 +107,20 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
               />
             </div>
             
-            <h1 className="text-2xl md:text-3xl font-bold mb-4">{event.title}</h1>
+            <h1 className="text-xl sm:text-3xl font-bold mb-4">{event.title}</h1>
             
             <div className="mb-6">
               <div className="flex items-center mb-2">
-                <span className="mr-2">📍</span>
-                <p className="text-md">{event.location}, {event.address}</p>
+                <span className="mr-2 text-lg sm:text-base">📍</span>
+                <p className="text-sm sm:text-base">{event.location}, {event.address}</p>
               </div>
               <div className="flex items-center mb-2">
-                <span className="mr-2">📅</span>
-                <p className="text-md">{event.date}, {event.time}</p>
+                <span className="mr-2 text-lg sm:text-base">📅</span>
+                <p className="text-sm sm:text-base">{event.date}, {event.time}</p>
               </div>
               <div className="flex items-center">
-                <span className="mr-2">💰</span>
-                <p className="text-md font-medium">
+                <span className="mr-2 text-lg sm:text-base">💰</span>
+                <p className="text-sm sm:text-base font-medium">
                   {event.isFree ? (
                     <span className="text-green-600">Free</span>
                   ) : (
@@ -130,20 +130,20 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
               </div>
             </div>
             
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Description</h2>
-              <p className="text-gray-700 whitespace-pre-line">
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Description</h2>
+              <p className="text-sm sm:text-base text-gray-700 whitespace-pre-line">
                 {event.eventDescription || "No detailed description available."}
               </p>
             </div>
             
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Amenities</h2>
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Amenities</h2>
               <div className="flex flex-wrap gap-2">
                 {event.amenities.map((amenity, index) => (
                   <span 
                     key={index} 
-                    className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                    className="px-3 py-1.5 sm:py-1 bg-gray-100 rounded-full text-xs sm:text-sm"
                   >
                     {amenity}
                   </span>
@@ -153,16 +153,16 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
           </div>
           
           {/* Right column with host information and participation */}
-          <div className="w-full md:w-1/3">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
-              <h2 className="text-xl font-semibold mb-4">Organizer</h2>
+          <div className="w-full md:w-1/3 flex flex-col gap-4 sm:gap-6">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
+              <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Organizer</h2>
               <div 
                 className={`flex items-center mb-4 cursor-pointer ${hostHovered ? 'text-green-600' : ''} transition-colors`}
                 onClick={handleHostClick}
                 onMouseEnter={() => setHostHovered(true)}
                 onMouseLeave={() => setHostHovered(false)}
               >
-                <div className={`w-12 h-12 rounded-full overflow-hidden mr-3 ${hostHovered ? 'ring-2 ring-green-500' : ''} transition-all`}>
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden mr-3 ${hostHovered ? 'ring-2 ring-green-500' : ''} transition-all`}>
                   <img 
                     src={event.host.photo} 
                     alt={event.host.name}
@@ -170,7 +170,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
                   />
                 </div>
                 <div>
-                  <p className="font-medium">{event.host.name}</p>
+                  <p className="font-medium text-sm sm:text-base">{event.host.name}</p>
                   <div className="flex items-center">
                     <span className="text-sm mr-1">⭐️</span>
                     <span className="text-sm">{event.host.rating}</span>
@@ -179,17 +179,17 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
               </div>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
-              <h2 className="text-xl font-semibold mb-4">Participants</h2>
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
+              <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Participants</h2>
               <div className="flex items-center justify-between mb-2">
-                <span>Current count:</span>
-                <span className="font-medium">{event.participants.current}</span>
+                <span className="text-sm sm:text-base">Current count:</span>
+                <span className="font-medium text-sm sm:text-base">{event.participants.current}</span>
               </div>
-              <div className="flex items-center justify-between mb-4">
-                <span>Total spots:</span>
-                <span className="font-medium">{event.participants.total}</span>
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <span className="text-sm sm:text-base">Total spots:</span>
+                <span className="font-medium text-sm sm:text-base">{event.participants.total}</span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-4 sm:mb-6">
                 <div 
                   className="bg-green-500 h-2 rounded-full" 
                   style={{ width: `${(event.participants.current / event.participants.total) * 100}%` }}
@@ -197,17 +197,17 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
               </div>
               
               {joinStatus && (
-                <div className={`p-3 mb-4 rounded-lg ${joinStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                <div className={`p-3 mb-4 rounded-lg text-sm sm:text-base ${joinStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                   {joinStatus.message}
                 </div>
               )}
               
               <button 
-                className={`w-full py-3 ${
+                className={`w-full h-12 sm:h-10 ${
                   joining 
                     ? 'bg-gray-400 cursor-not-allowed' 
                     : 'bg-green-600 hover:bg-green-700 cursor-pointer'
-                } text-white font-medium rounded-full transition-colors`}
+                } text-white font-medium rounded-full transition-colors text-base sm:text-sm`}
                 onClick={handleJoinEvent}
                 disabled={joining}
               >
@@ -215,17 +215,17 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
               </button>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <h2 className="text-xl font-semibold mb-4">Share</h2>
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
+              <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Share</h2>
               <div className="flex gap-3">
-                <button className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
-                  <span>📱</span>
+                <button className="w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                  <span className="text-lg sm:text-base">📱</span>
                 </button>
-                <button className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
-                  <span>📧</span>
+                <button className="w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                  <span className="text-lg sm:text-base">📧</span>
                 </button>
-                <button className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
-                  <span>🔗</span>
+                <button className="w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                  <span className="text-lg sm:text-base">🔗</span>
                 </button>
               </div>
             </div>
