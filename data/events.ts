@@ -1,14 +1,14 @@
 import { Event } from '../types';
 
-// Моковые данные для ивентов
-// В будущем их можно заменить на данные из Supabase
-// Примерно так:
-// import { createClient } from '@supabase/supabase-js';
-// const supabase = createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_KEY');
-// export const fetchEvents = async () => {
-//   const { data, error } = await supabase.from('events').select('*');
-//   if (error) throw error;
-//   return data as Event[];
+// Mock data for events
+// In the future, this can be replaced with data from Supabase
+// Something like this:
+
+// export const getEvents = async () => {
+//   const { data, error } = await supabase
+//     .from('events')
+//     .select('*');
+//   return data;
 // };
 
 export const events: Event[] = [

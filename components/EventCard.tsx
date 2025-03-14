@@ -5,14 +5,14 @@ import { useRouter } from 'next/router';
 
 const EventCard = ({ event }: EventCardProps) => {
   const router = useRouter();
-  // Универсальное изображение-заглушка
+  // Universal placeholder image
   const placeholderImage = "https://picsum.photos/seed/event/800/600";
   const placeholderAvatar = "https://picsum.photos/seed/avatar/150/150";
   
   const [imgSrc, setImgSrc] = useState(event.image);
   const [avatarSrc, setAvatarSrc] = useState(event.host.photo);
   const [isHostHovered, setIsHostHovered] = useState(false);
-  // Добавляем состояние для отслеживания наведения на изображение или кнопку Join
+  // Adding state to track when either the image or Join button is hovered
   const [isCardHovered, setIsCardHovered] = useState(false);
   
   const handleImageError = () => {
@@ -28,22 +28,20 @@ const EventCard = ({ event }: EventCardProps) => {
   };
   
   const handleJoinClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Останавливаем всплытие события
-    router.push(`/event/${event.id}?join=true`); // Переходим на страницу ивента с параметром join
+    e.stopPropagation(); // Stop event propagation
+    router.push(`/event/${event.id}?join=true`);
   };
   
   const handleHostClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Останавливаем всплытие события
+    if (!event.host.id) return;
     
-    // Проверяем, что у хоста есть id, и перенаправляем на его страницу профиля
-    if (event.host.id) {
-      router.push(`/profile/${event.host.id}`);
-    }
+    e.stopPropagation(); // Stop event propagation
+    router.push(`/profile/${event.host.id}`);
   };
   
   return (
     <div className="w-[210px]">
-      {/* Верхняя часть с изображением - кликабельная */}
+      {/* Upper part with image - clickable */}
       <div 
         className={`relative w-full h-[200px] mb-[10px] transition-transform duration-200 ${isCardHovered ? 'scale-[1.03]' : ''} cursor-pointer`}
         onClick={handleEventImageClick}
@@ -67,7 +65,7 @@ const EventCard = ({ event }: EventCardProps) => {
         </div>
       </div>
 
-      {/* Нижняя часть - не кликабельная */}
+      {/* Lower part - not clickable */}
       <div className="flex flex-col gap-[20px]">
         <div className="flex flex-col">
           <h3 className="text-[13px] font-medium leading-[20px] mb-1">{event.title}</h3>

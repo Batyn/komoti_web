@@ -4,15 +4,15 @@ import { getCurrentUser } from '../data/users';
 import { User } from '../types';
 
 const Header = () => {
-  // В реальном приложении здесь будет проверка авторизации
+  // In a real application, this is where authentication will be checked
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [userImgLoaded, setUserImgLoaded] = useState(true);
 
-  // Имитация проверки авторизации
+  // Authentication check simulation
   useEffect(() => {
-    // Здесь будет проверка авторизации
-    // Для демонстрации считаем, что пользователь авторизован
+    // Authentication check will be done here
+    // For demonstration, we assume the user is authenticated
     setIsLoggedIn(true);
     setUser(getCurrentUser());
   }, []);
@@ -31,7 +31,7 @@ const Header = () => {
           
           <nav className="ml-8 hidden md:flex space-x-6">
             <Link href="/" className="text-gray-600 hover:text-black transition-colors">
-              Главная
+              Home
             </Link>
           </nav>
         </div>

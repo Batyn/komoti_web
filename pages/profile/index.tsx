@@ -5,14 +5,14 @@ import UserProfile from '../../components/UserProfile';
 import { getCurrentUser } from '../../data/users';
 
 const ProfilePage: NextPage = () => {
-  // В реальном приложении здесь будет получение данных с сервера
+  // In a real application, data would be fetched from the server here
   const user = getCurrentUser();
   
   return (
     <Layout>
       <Head>
-        <title>{user.name} | Профиль | Komoti</title>
-        <meta name="description" content={`Профиль пользователя ${user.name} на Komoti`} />
+        <title>{user.name} | Profile | Komoti</title>
+        <meta name="description" content={`${user.name}'s profile on Komoti`} />
       </Head>
       
       <UserProfile user={user} />

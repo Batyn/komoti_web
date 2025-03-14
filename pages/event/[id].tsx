@@ -18,19 +18,19 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
   const [joinStatus, setJoinStatus] = useState<{ success: boolean; message: string } | null>(null);
   const [hostHovered, setHostHovered] = useState(false);
 
-  // Проверяем параметр join при загрузке компонента
+  // Check join parameter when the component loads
   useEffect(() => {
     if (router.query.join === 'true' && event && !joining && !joinStatus) {
       handleJoinEvent();
     }
   }, [router.query, event]);
 
-  // Если страница загружается или ивент не найден
+  // If the page is loading or event is not found
   if (router.isFallback || !event) {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
-          <p className="text-xl">Загрузка...</p>
+          <p className="text-xl">Loading...</p>
         </div>
       </Layout>
     );
@@ -41,7 +41,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
       setJoining(true);
       setJoinStatus(null);
 
-      // Удаляем параметр join из URL, чтобы при обновлении страницы не происходило повторного запроса
+      // Remove join parameter from URL to prevent repeated requests on page refresh
       if (router.query.join) {
         const { join, ...query } = router.query;
         router.replace({ pathname: router.pathname, query }, undefined, { shallow: true });
@@ -54,7 +54,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
         },
         body: JSON.stringify({
           eventId: event.id,
-          // userId будет добавлен когда появится авторизация
+          // userId will be added when authentication is implemented
         }),
       });
 
@@ -67,7 +67,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
     } catch (error) {
       setJoinStatus({
         success: false,
-        message: 'Произошла ошибка при обработке вашего запроса',
+        message: 'An error occurred while processing your request',
       });
     } finally {
       setJoining(false);
@@ -84,19 +84,19 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
     <Layout>
       <Head>
         <title>{event.title} | Komoti</title>
-        <meta name="description" content={event.eventDescription || `Подробная информация о мероприятии ${event.title}`} />
+        <meta name="description" content={event.eventDescription || `Detailed information about ${event.title}`} />
       </Head>
 
       <div className="pt-[100px] pb-[50px] max-w-7xl mx-auto px-4">
         <div className="mb-6">
           <Link href="/" className="inline-flex items-center text-gray-600 hover:text-green-600 transition-colors">
             <span className="mr-2">←</span>
-            <span>Вернуться на главную</span>
+            <span>Back to Home</span>
           </Link>
         </div>
         
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Левая колонка с изображением и основной информацией */}
+          {/* Left column with image and main information */}
           <div className="w-full md:w-2/3">
             <div className="relative w-full h-[300px] md:h-[400px] mb-6 rounded-[20px] overflow-hidden">
               <div 
@@ -122,7 +122,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
                 <span className="mr-2">💰</span>
                 <p className="text-md font-medium">
                   {event.isFree ? (
-                    <span className="text-green-600">Бесплатно</span>
+                    <span className="text-green-600">Free</span>
                   ) : (
                     <span>{event.price} ₽</span>
                   )}
@@ -131,14 +131,14 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
             </div>
             
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Описание</h2>
+              <h2 className="text-xl font-semibold mb-3">Description</h2>
               <p className="text-gray-700 whitespace-pre-line">
-                {event.eventDescription || "Детальное описание отсутствует."}
+                {event.eventDescription || "No detailed description available."}
               </p>
             </div>
             
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-3">Удобства</h2>
+              <h2 className="text-xl font-semibold mb-3">Amenities</h2>
               <div className="flex flex-wrap gap-2">
                 {event.amenities.map((amenity, index) => (
                   <span 
@@ -152,10 +152,10 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
             </div>
           </div>
           
-          {/* Правая колонка с информацией о хосте и участии */}
+          {/* Right column with host information and participation */}
           <div className="w-full md:w-1/3">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
-              <h2 className="text-xl font-semibold mb-4">Организатор</h2>
+              <h2 className="text-xl font-semibold mb-4">Organizer</h2>
               <div 
                 className={`flex items-center mb-4 cursor-pointer ${hostHovered ? 'text-green-600' : ''} transition-colors`}
                 onClick={handleHostClick}
@@ -180,13 +180,13 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
-              <h2 className="text-xl font-semibold mb-4">Участники</h2>
+              <h2 className="text-xl font-semibold mb-4">Participants</h2>
               <div className="flex items-center justify-between mb-2">
-                <span>Текущее количество:</span>
+                <span>Current count:</span>
                 <span className="font-medium">{event.participants.current}</span>
               </div>
               <div className="flex items-center justify-between mb-4">
-                <span>Всего мест:</span>
+                <span>Total spots:</span>
                 <span className="font-medium">{event.participants.total}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
@@ -211,12 +211,12 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
                 onClick={handleJoinEvent}
                 disabled={joining}
               >
-                {joining ? 'Обработка...' : 'Присоединиться'}
+                {joining ? 'Processing...' : 'Join'}
               </button>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <h2 className="text-xl font-semibold mb-4">Поделиться</h2>
+              <h2 className="text-xl font-semibold mb-4">Share</h2>
               <div className="flex gap-3">
                 <button className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
                   <span>📱</span>
@@ -243,7 +243,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   
   return {
     paths,
-    fallback: false, // возвращает 404 для неизвестных ID
+    fallback: false, // returns 404 for unknown IDs
   };
 };
 
