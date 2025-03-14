@@ -75,7 +75,7 @@ const EventCard = ({ event }: EventCardProps) => {
           </p>
         </div>
         
-        <div className="flex flex-col gap-[10px]">
+        <div className="flex flex-col gap-[4px]">
           <div className="flex flex-wrap gap-[5px]">
             {event.amenities.map((amenity, index) => (
               <span key={index} className="text-[10px] leading-[15px] bg-[#E8E8E8] px-[6px] py-0 rounded-full flex items-center justify-center">
@@ -84,9 +84,11 @@ const EventCard = ({ event }: EventCardProps) => {
             ))}
           </div>
           
-          <button className="w-full h-[30px] bg-black text-white text-[13px] font-medium rounded-full hover:bg-gray-800 transition-colors">
-            Подробнее
-          </button>
+          <div className="mt-[20px]">
+            <button className="w-full h-[30px] bg-green-100 text-green-800 text-[13px] font-medium rounded-full hover:bg-green-200 transition-colors">
+              Join
+            </button>
+          </div>
         </div>
       </div>
     </div>
