@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import EventCard from '../components/EventCard';
 import { events } from '../data/events';
@@ -13,15 +14,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="pt-[100px]">
+      {/* Секция событий */}
+      <section className="pt-[40px] pb-[30px]">
+        <div className="flex justify-between items-center mb-[30px]">
+          <h2 className="text-2xl font-bold">Популярные события</h2>
+          <Link href="/" className="text-green-600 hover:text-green-800 transition-colors">
+            Все события
+          </Link>
+        </div>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-[20px]">
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </div>
       </section>
-
-      {/* Здесь можно добавить дополнительные секции для будущего расширения сайта */}
     </Layout>
   );
 };

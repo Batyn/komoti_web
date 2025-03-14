@@ -29,6 +29,7 @@ export const events: Event[] = [
       total: 10
     },
     host: {
+      id: '1',
       name: 'Alexey Ivanov',
       rating: 4.7,
       photo: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
@@ -53,6 +54,7 @@ export const events: Event[] = [
       total: 24
     },
     host: {
+      id: '2',
       name: 'Marina Petrova',
       rating: 4.9,
       photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
@@ -77,6 +79,7 @@ export const events: Event[] = [
       total: 9
     },
     host: {
+      id: '3',
       name: 'Denis Kozlov',
       rating: 4.7,
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
@@ -101,6 +104,7 @@ export const events: Event[] = [
       total: 10
     },
     host: {
+      id: '4',
       name: 'Ivan Sokolov',
       rating: 4.8,
       photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
@@ -125,6 +129,7 @@ export const events: Event[] = [
       total: 12
     },
     host: {
+      id: '5',
       name: 'Natalia Orlova',
       rating: 4.6,
       photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
@@ -149,6 +154,7 @@ export const events: Event[] = [
       total: 10
     },
     host: {
+      id: '6',
       name: 'Elena Volkova',
       rating: 4.9,
       photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'

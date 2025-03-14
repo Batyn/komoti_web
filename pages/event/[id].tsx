@@ -16,6 +16,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
   const router = useRouter();
   const [joining, setJoining] = useState(false);
   const [joinStatus, setJoinStatus] = useState<{ success: boolean; message: string } | null>(null);
+  const [hostHovered, setHostHovered] = useState(false);
 
   // Проверяем параметр join при загрузке компонента
   useEffect(() => {
@@ -70,6 +71,12 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
       });
     } finally {
       setJoining(false);
+    }
+  };
+
+  const handleHostClick = () => {
+    if (event.host.id) {
+      router.push(`/profile/${event.host.id}`);
     }
   };
 
@@ -149,8 +156,13 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
           <div className="w-full md:w-1/3">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
               <h2 className="text-xl font-semibold mb-4">Организатор</h2>
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-3">
+              <div 
+                className={`flex items-center mb-4 cursor-pointer ${hostHovered ? 'text-green-600' : ''} transition-colors`}
+                onClick={handleHostClick}
+                onMouseEnter={() => setHostHovered(true)}
+                onMouseLeave={() => setHostHovered(false)}
+              >
+                <div className={`w-12 h-12 rounded-full overflow-hidden mr-3 ${hostHovered ? 'ring-2 ring-green-500' : ''} transition-all`}>
                   <img 
                     src={event.host.photo} 
                     alt={event.host.name}
