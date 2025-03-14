@@ -20,6 +20,7 @@ export interface Event {
     photo: string;
   };
   amenities: string[];
+  eventDescription?: string;
 }
 
 export interface EventCardProps {

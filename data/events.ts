@@ -33,7 +33,8 @@ export const events: Event[] = [
       rating: 4.7,
       photo: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Join our friendly 5x5 football match at Arena Pro! We're looking for skilled players to complete our teams. Great atmosphere and competitive gameplay guaranteed."
   },
   {
     id: '2',
@@ -56,7 +57,8 @@ export const events: Event[] = [
       rating: 4.9,
       photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Start your day with an energizing run through Green Grove Park! All fitness levels welcome. We'll follow scenic routes and support each other along the way."
   },
   {
     id: '3',
@@ -79,7 +81,8 @@ export const events: Event[] = [
       rating: 4.7,
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Show off your best moves at our Hip-Hop Night! Dancers of all levels can participate or just come to enjoy the performances. Great music and vibrant atmosphere!"
   },
   {
     id: '4',
@@ -102,7 +105,8 @@ export const events: Event[] = [
       rating: 4.8,
       photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Learn boxing techniques from professional trainers! This session welcomes both beginners and experienced boxers. All equipment provided. Come get fit while learning self-defense!"
   },
   {
     id: '5',
@@ -125,7 +129,8 @@ export const events: Event[] = [
       rating: 4.6,
       photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Experience the ultimate paintball battle! Join our team competition with various tactical scenarios. Equipment and safety gear included. Strategy and teamwork is key!"
   },
   {
     id: '6',
@@ -148,6 +153,7 @@ export const events: Event[] = [
       rating: 4.9,
       photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80'
     },
-    amenities: ['Parking Available', 'Locker Rooms', 'Shower']
+    amenities: ['Parking Available', 'Locker Rooms', 'Shower'],
+    eventDescription: "Find your inner peace with our morning yoga and meditation session in a beautiful park setting. Perfect for all levels. Bring your own mat and enjoy nature as you practice."
   }
 ]; 

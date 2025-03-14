@@ -71,16 +71,22 @@ const EventCard = ({ event }: EventCardProps) => {
           </div>
           
           <p className="text-[11px] leading-[15px] text-[#919191]">
-            Looking for players to join a friendly match. Come train and have fun!
+            {event.eventDescription || "Looking for players to join a friendly match. Come train and have fun!"}
           </p>
         </div>
         
-        <div className="flex flex-wrap gap-[5px]">
-          {event.amenities.map((amenity, index) => (
-            <span key={index} className="text-[10px] leading-[15px] bg-[#E8E8E8] px-[6px] py-0 rounded-full flex items-center justify-center">
-              {amenity}
-            </span>
-          ))}
+        <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-wrap gap-[5px]">
+            {event.amenities.map((amenity, index) => (
+              <span key={index} className="text-[10px] leading-[15px] bg-[#E8E8E8] px-[6px] py-0 rounded-full flex items-center justify-center">
+                {amenity}
+              </span>
+            ))}
+          </div>
+          
+          <button className="w-full h-[30px] bg-black text-white text-[13px] font-medium rounded-full hover:bg-gray-800 transition-colors">
+            Подробнее
+          </button>
         </div>
       </div>
     </div>
