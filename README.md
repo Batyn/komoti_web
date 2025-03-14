@@ -64,4 +64,4 @@ yarn dev
 
 ## License
 
-[MIT](LICENSE) 
+[MIT](LICENSE) # Komoti Web - деплой на Vercel
