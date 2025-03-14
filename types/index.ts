@@ -17,6 +17,7 @@ export interface Event {
   host: {
     name: string;
     rating: number;
+    photo: string;
   };
   amenities: string[];
 }

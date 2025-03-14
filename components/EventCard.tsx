@@ -4,10 +4,17 @@ import { useState } from 'react';
 const EventCard = ({ event }: EventCardProps) => {
   // Универсальное изображение-заглушка
   const placeholderImage = "https://picsum.photos/seed/event/800/600";
+  const placeholderAvatar = "https://picsum.photos/seed/avatar/150/150";
+  
   const [imgSrc, setImgSrc] = useState(event.image);
+  const [avatarSrc, setAvatarSrc] = useState(event.host.photo);
   
   const handleImageError = () => {
     setImgSrc(placeholderImage);
+  };
+  
+  const handleAvatarError = () => {
+    setAvatarSrc(placeholderAvatar);
   };
   
   return (
@@ -47,8 +54,13 @@ const EventCard = ({ event }: EventCardProps) => {
         <div className="flex flex-col gap-[4px]">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-[5px]">
-              <div className="w-[20px] h-[20px] bg-gray-300 rounded-full overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-xs">👤</div>
+              <div className="w-[20px] h-[20px] rounded-full overflow-hidden">
+                <img 
+                  src={avatarSrc} 
+                  alt={event.host.name}
+                  className="w-full h-full object-cover"
+                  onError={handleAvatarError}
+                />
               </div>
               <span className="text-[13px] font-normal leading-[20px]">{event.host.name}</span>
             </div>
